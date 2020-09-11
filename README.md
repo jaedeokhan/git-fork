@@ -1,4 +1,4 @@
-# git-forlk
+# git-fork
 git fork 협업방식 정리
 
 ## TODO
@@ -60,7 +60,102 @@ git fork 협업방식 정리
 #### 앞의 설정을 하고 나면 이와같이 upstream이 추가된 것을 볼 수 있습니다.
 ![image](https://user-images.githubusercontent.com/45028904/92926684-5efac600-f477-11ea-86c9-499e35ac7824.png)
 
-#### 하지만, 여기서 하나 더 추가해줘야 합니다. 
+#### 하지만, 여기서 하나 더 추가해줘야 합니다. 위의 설정은 아직 upstream의 경로만 추가가 해준것이기에 fetch가 가능한 upstream 저장소의 origin을 등록해줘야 합니다. 여기서 origin이란 일단은 master라고 생각하면 될거 같습니다.
+![image](https://user-images.githubusercontent.com/45028904/92926872-a84b1580-f477-11ea-8c93-4a220302cacf.png)
+
+#### 환경설정 파일을 Open을 눌러서 열어서 설정해주겠습니다.
+![image](https://user-images.githubusercontent.com/45028904/92927035-f19b6500-f477-11ea-8888-c8a00d8b7dbe.png)
+
+#### config 관련 설정 파일이 나옵니다. remote "origin"에 현재 제가 Fork한 저장소의 url과 fetch 경로가 나옵니다. 그래서 위 fetch를 하단의 remote "upstream"에서도 추가해줍니다.
+![image](https://user-images.githubusercontent.com/45028904/92927340-6bcbe980-f478-11ea-91fb-1f02697684f9.png)
+
+#### remote "upstream"에 fetch를 추가해주고 ctrl + s 로 꼭 저장해줍니다. 이로써 git remote 연결은 완료했습니다.
+![image](https://user-images.githubusercontent.com/45028904/92927402-83a36d80-f478-11ea-8701-806a0334c9b3.png)
+
+
+### 3. Git Repository에 있는 devst를 Eclipse의 프로젝트로 생성을 하겠습니다.
+
+#### Project Explore에서 우측 마우스를 누른 뒤 다음과 같이 Import를 누릅니다.
+![image](https://user-images.githubusercontent.com/45028904/92927611-e09f2380-f478-11ea-942a-51bd5db9f441.png)
+
+#### Git 폴더에 Projects from Git을 선택하고 Next를 누릅니다.
+![image](https://user-images.githubusercontent.com/45028904/92927731-0b897780-f479-11ea-9338-5af259ae0fd3.png)
+
+#### 현재 저희는 아까 git clone 한 저장소에 upstream 설정을 해줘서 존재하는 저장소를 클릭합니다.
+![image](https://user-images.githubusercontent.com/45028904/92927885-468bab00-f479-11ea-8426-d5e011d61ea1.png)
+
+#### Next를 누릅니다.
+![image](https://user-images.githubusercontent.com/45028904/92927918-51ded680-f479-11ea-9698-b6ef1f1efeeb.png)
+
+#### 프로젝트 생성을 다음과 같이 누르고 Finish를 진행합니다.
+![image](https://user-images.githubusercontent.com/45028904/92928190-b863f480-f479-11ea-80a9-713480f9f582.png)
+
+#### 프로젝트 Import를 Finish 합니다.
+![image](https://user-images.githubusercontent.com/45028904/92928274-cfa2e200-f479-11ea-905c-bcd3c741d6ab.png)
+
+#### 생성을 하고 다음과 같이 project가 나오는 것을 볼 수 있습니다. 그렇지만 일반 프로젝트로 일단 Import를 했기에 Maven Project로 바꿔주면 pom.xml에서 자동으로 라이브러리를 설치해줍니다.
+![image](https://user-images.githubusercontent.com/45028904/92928422-024cda80-f47a-11ea-99c1-21567014b882.png)
+
+#### 다음과 같이 Maven Project로 변경을 해줍니다. 변경이 되고나면 자동으로 pom.xml을 읽어 들이고 나서 Spring Project로 바뀌게 됩니다.
+![image](https://user-images.githubusercontent.com/45028904/92928559-3aecb400-f47a-11ea-8376-5fd94a48d67d.png)
+
+### 4. 이제 변경사항을 관리하도록 branch를 생성해서 작업을 해보고 저장소에 올려보겠습니다.
+
+#### devst 프로젝트 우클릭 후 -> Team -> Switch To -> New Branch 를 클릭합니다.
+<img src="https://user-images.githubusercontent.com/45028904/92928769-8acb7b00-f47a-11ea-877e-3b1a1df41fa0.png" width="500" height="500"/>
+
+#### 현재 좌측에 devst 프로젝트에서는 devst master라고 브랜치가 있는것을 확인이 가능합니다. 새로운 브랜치는 임의적으로 일단 feautre/boardList라고 이름을 짓고, Finish를 눌러줍니다.
+![image](https://user-images.githubusercontent.com/45028904/92929163-1513df00-f47b-11ea-9a99-545d7c9e13c8.png)
+
+#### 생성을 하고 나면 위의 Check out new Branch로 설정을 했기에 바로 새로운 브랜치인 feature/boardList로 바꿔집니다.
+![image](https://user-images.githubusercontent.com/45028904/92929310-48ef0480-f47b-11ea-8d84-14aaec1c03f9.png)
+
+#### text.jsp를 하나 만들어서 변경 사항을 관리해보겠습니다. 간단하게 h2태그에 test 내용만 적습니다.
+![image](https://user-images.githubusercontent.com/45028904/92929484-93708100-f47b-11ea-84d5-a71323895881.png)
+
+#### 변경사항을 관리하기 위해서 Project 우클릭 후 -> Team -> Add to Index를 해줍니다. 그 전에 project에서 text.jsp가 어떤 모습으로 보이는지 확ㅇ니하고 Add to Index를 누르도록 하겠습니다.
+* 자세하게 보시면 다른 파일들은 노란색 점으로 되어 있는게 보일겁니다. 노란색으로 보이면 이미 git에 올라가있는 최신 변동사항인것이고, text.jsp 처럼 ?가 되어 있으면 아직 git에서 변동사항을 체크하지 못한것을 의미합니다. 그래서 Add to Index를 해주는 것입니다.
+![image](https://user-images.githubusercontent.com/45028904/92929775-0f6ac900-f47c-11ea-9c8e-168a99098e84.png)
+
+![image](https://user-images.githubusercontent.com/45028904/92929657-df232a80-f47b-11ea-9e14-92c4d76773cf.png)
+
+#### 프로젝트에 *와 같은 문양이 떠있는것을 볼 수 있습니다. text.jsp에서는 +가 생겼고 변동사항을 체크했고 변동이 존재해서 프로젝트에서는 *가 생기는 것입니다.
+![image](https://user-images.githubusercontent.com/45028904/92930006-696b8e80-f47c-11ea-83df-757f821a2a1a.png)
+
+#### 이 다음은 변동사항을 체크했으니 이제는 commit 을 해야합니다. 
+* 프로젝트 우클릭 후 -> Team -> Commit을 누릅니다.
+![image](https://user-images.githubusercontent.com/45028904/92930100-95870f80-f47c-11ea-892e-7233df10b5aa.png)
+
+#### Commit을 누르면 Unstaged 영역과 Staged 영역이 나옵니다. 저희는 현재 text.jsp의 변동사항을 Add to Index를 통해서 했기에 Staged 영역에 볼 수 있습ㄴ디ㅏ.
+* 그래서! 우측에 Commmit Message를 입력하고 하단에 Commit and Push를 바로 진행하도록 하겠습니다.
+ * commit을 하면 저희가 지금 작업하고 있는 local pc에서 변동사항을 저장하는 것입니다.
+ * push의 경우에는 local pc => 저희가 Fork한 pc 업로드 하는 것입니다.
+  * 여기서는 upstream로 또한 저희가 공유하는 저장소를 remote로 연결을 해서 github 페이지에서 올라온 변동사항을 확인이 가능합니다.
+![image](https://user-images.githubusercontent.com/45028904/92930578-383f8e00-f47d-11ea-9b0a-d231b241bf71.png)
+
+#### 누르고 나면 이제 어떤 브랜치로 push를 하는지 물어봅니다. 당연히 저희는 feature/boardList 브랜치로 선택하고 Next를 누릅니다.
+![image](https://user-images.githubusercontent.com/45028904/92930698-61f8b500-f47d-11ea-9663-92e3d5662552.png)
+
+#### Next를 누르고 나면 조금의 시간 뒤에 Push Confirmation 화면을 볼 수 있습니다.
+![image](https://user-images.githubusercontent.com/45028904/92930783-7e94ed00-f47d-11ea-97b5-e7f5cd4664f8.png)
+
+#### 자신이 Fork한 github 페이지의 개인 저장소에 들어가면 다음과 같은 항목이 뜹니다.
+* 아래와 같은 내용은 feautre/boardList 브랜치로 작업이 성공적으로 올라갔고 항목을 누르면 pull requet 즉 저희가 공동 관리하는 upstream에 반영해달라고 작성을 하는 것입니다.
+![image](https://user-images.githubusercontent.com/45028904/92930961-bd2aa780-f47d-11ea-9078-dab34a49a9f4.png)
+
+#### compare & pull request 버튼을 누르면 저희가 공동 관리하는 dcu-devst/devst 저장소로 와서 요청 내용을 입력하고 하단의 3번의 Creata pull Request를 눌러 요청합니다.
+![image](https://user-images.githubusercontent.com/45028904/92931310-3c1fe000-f47e-11ea-9d9c-1488a3c0b40a.png)
+
+#### 여기서는 이제 팀원이 3명이라면 규약을 정해놓고 만약 2명이 확인을 해서 하단에 댓글을 달면 마지막 사람이 Merge를 하는 방식으로 변경사항을 반영해야지 이제 feature/boardList 브랜치에서 작성한 결과가 반영이 되는 것입니다.
+![image](https://user-images.githubusercontent.com/45028904/92931680-c8ca9e00-f47e-11ea-9706-cf8ad9e5e3df.png)
+
+#### Merge를 진행하고 나면 Merged가 된 보라색 화면을 볼 수 있습니다.
+![image](https://user-images.githubusercontent.com/45028904/92932079-5dcd9700-f47f-11ea-95f0-0719bf66830a.png)
+
+
+
+
+
 
 
 
