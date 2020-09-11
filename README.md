@@ -4,6 +4,9 @@ git fork 협업방식 정리
 ## TODO
 1. Eclipse에서 git clone 진행하기
 2. git remote upstream 설정하기 - 세 명이 공유하는 저장소(upstream)
+3. Git Repository에 있는 devst를 Eclipse의 프로젝트로 생성하기
+4. 변경사항을 관리하도록 branch를 생성해서 작업을 해보고 저장소에 올리기
+
 
 ### 1. Eclipse에서 git clone 진행하기
  
@@ -90,7 +93,7 @@ git fork 협업방식 정리
 #### 다음과 같이 Maven Project로 변경을 해줍니다. 변경이 되고나면 자동으로 pom.xml을 읽어 들이고 나서 Spring Project로 바뀌게 됩니다.
 <img src="https://user-images.githubusercontent.com/45028904/92928559-3aecb400-f47a-11ea-8376-5fd94a48d67d.png" width="1000" height="700"/>
 
-### 4. 이제 변경사항을 관리하도록 branch를 생성해서 작업을 해보고 저장소에 올려보겠습니다.
+### 4. 변경사항을 관리하도록 branch를 생성해서 작업을 해보고 저장소에 올려보겠습니다.
 
 #### devst 프로젝트 우클릭 후 -> Team -> Switch To -> New Branch 를 클릭합니다.
 <img src="https://user-images.githubusercontent.com/45028904/92928769-8acb7b00-f47a-11ea-877e-3b1a1df41fa0.png" width="1000" height="700"/>
