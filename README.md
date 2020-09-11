@@ -151,16 +151,32 @@ git fork 협업방식 정리
 <img src="https://user-images.githubusercontent.com/45028904/92932079-5dcd9700-f47f-11ea-95f0-0719bf66830a.png" width="1000" height="700"/>
 
 
+### 5. Fork한 feature/boardList 브랜치와 upstream 인 세 명이서 공유하고 있는 저장소는 text.jsp가 업데이트 되었지만, Fork한 master 브랜치에서 upstream의 변동사항을 가져와야한다.
 
+#### devst 프로젝트에서 현재 feaute/boardList 브랜치는 text.jsp를 가지고 있는것을 볼 수 있습니다. 그러면 master 브랜치로 변경하고 확인해보겠습니다. 
+<img src="https://user-images.githubusercontent.com/45028904/92940248-d9ccdc80-f489-11ea-9e5c-8e267791f36b.png" width="1000" height="700"/>
 
+#### 변경 방법은 비교적 간단합니다.
+  * 프로젝트 우클릭 후 -> Team -> Switch to -> master 로 변경을 해줍니다.
+  
+<img src="https://user-images.githubusercontent.com/45028904/92940460-1dbfe180-f48a-11ea-9325-146ccf6cd1f9.png" width="1000" height="700"/>
 
+#### 변경을 하고나면 devst 프로젝트명 옆에는 master 브랜치가 선택이 된 것을 확인할 수 있고, 하단의 빨간 박스에는 어디에도 text.jsp는 없는 것을 볼 수 있습니다. 
+  * 왜냐하면, 각각의 브랜치는 다른 공간이라고 생각하시면 됩니다. 그래서 Fork 한 저장소에서 feature/boardList 브랜치에서 text.jsp 작업을 하고, upstream 인 공동 저장소에 변동 사항을 반영해서 Fork의 master 브랜치에서 upstream의 최신 변동 사항을 가져와야 합니다.
+ 
+<img src="https://user-images.githubusercontent.com/45028904/92940694-5fe92300-f48a-11ea-80eb-8c9f0b421ddc.png" width="1000" height="700"/>
 
+#### 이제 upstream에서 pull 을 해와서 Fork 저장소의 master 브랜치에 최신 변동사항을 업데이트 해보기 위해서 pull이 두 개가 있는데 하단에 것을 클릭합니다.
+<img src="https://user-images.githubusercontent.com/45028904/92941080-e0a81f00-f48a-11ea-829b-8c61e8827e03.png" width="1000" height="700"/>
 
+#### 클릭을 하고나면 origin, upstream 선택을 하는 것이 있는데 저희는 upstream이 공용 저장소이니 upstream을 선택합니다.
+<img src="https://user-images.githubusercontent.com/45028904/92941119-edc50e00-f48a-11ea-9f25-f1751302dd4b.png" width="1000" height="700"/>
 
+#### upstream에서 최신 변동사항들을 잘 가져온것을 볼 수 있습니다.
+<img src="https://user-images.githubusercontent.com/45028904/92941291-2664e780-f48b-11ea-9227-201e8cef5487.png" width="1000" height="700"/>
 
-
-
-
+#### devst 프로젝트 우측에 master 브랜치인것을 볼 수 있고, upstream의 최신 코드가 정상적으로 반영이 되어서 하단의 text.jsp가 잘 있는것을 확인이 가능합니다.
+<img src="https://user-images.githubusercontent.com/45028904/92941482-61671b00-f48b-11ea-9e02-c2e8beeed8a2.png" width="1000" height="700"/>
 
 
 
