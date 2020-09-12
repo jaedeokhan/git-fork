@@ -42,7 +42,8 @@ git fork 협업방식 정리
 <img src="https://user-images.githubusercontent.com/45028904/92925939-40e09600-f476-11ea-8754-0593ff1f135f.png" width="800" height="700"/>
 
 #### Remote name으로 upstream으로 입력을 해주고 일단 Configure push 기본값으로 설정하고 Create를 해줍니다.
-<img src="https://user-images.githubusercontent.com/45028904/92926190-a0d73c80-f476-11ea-869b-fde4762afec5.png" width="800" height="700"/>
+<img src="https://user-images.githubusercontent.com/45028904/92926190-a0d73c80-f476-11ea-869b-fde4762afec
+png" width="800" height="700"/>
 
 #### 기존에 origin으로 Fork한 저장소가 존재하기에 Change를 눌러줍니다.
 <img src="https://user-images.githubusercontent.com/45028904/92926409-f14e9a00-f476-11ea-93e2-acbbd9e6bc71.png" width="800" height="700"/>
@@ -152,7 +153,8 @@ git fork 협업방식 정리
 <img src="https://user-images.githubusercontent.com/45028904/92932079-5dcd9700-f47f-11ea-95f0-0719bf66830a.png" width="800" height="700"/>
 
 
-### 5. Fork한 feature/boardList 브랜치와 upstream 인 세 명이서 공유하고 있는 저장소는 text.jsp가 업데이트 되었지만, Fork한 master 브랜치에서 upstream의 변동사항을 가져와야한다.
+### 5. upstream의 최신 변동사항을 local pc의 master branch에서 하기
+* Fork한 feature/boardList 브랜치와 upstream 인 세 명이서 공유하고 있는 저장소는 text.jsp가 업데이트 되었지만, Fork한 master 브랜치에서 upstream의 변동사항을 가져와야한다.
 
 #### devst 프로젝트에서 현재 feaute/boardList 브랜치는 text.jsp를 가지고 있는것을 볼 수 있습니다. 그러면 master 브랜치로 변경하고 확인해보겠습니다. 
 <img src="https://user-images.githubusercontent.com/45028904/92940248-d9ccdc80-f489-11ea-9e5c-8e267791f36b.png" width="800" height="700"/>
