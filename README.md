@@ -6,6 +6,7 @@ git fork 협업방식 정리
 2. git remote upstream 설정하기 - 세 명이 공유하는 저장소(upstream)
 3. Git Repository에 있는 devst를 Eclipse의 프로젝트로 생성하기
 4. 변경사항을 관리하도록 branch를 생성해서 작업을 해보고 저장소에 올리기
+5. upstream의 최신 변동사항을 local pc의 master branch에서 
 
 
 ### 1. Eclipse에서 git clone 진행하기
